@@ -273,6 +273,14 @@ class CameraController extends ValueNotifier<CameraValue> {
     await _channel.invokeMethod<void>('prepareForVideoRecording');
   }
 
+  Future<void> stopPreview() async {
+    await _channel.invokeMethod<void>('stopPreview');
+  }
+
+  Future<void> restartPreview() async {
+    await _channel.invokeMethod<void>('restartPreview');
+  }
+
   /// Listen to events from the native plugins.
   ///
   /// A "cameraClosing" event is sent when the camera is closed automatically by the system (for example when the app go to background). The plugin will try to reopen the camera automatically but any ongoing recording will end.

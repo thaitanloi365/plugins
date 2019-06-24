@@ -723,6 +723,10 @@ FourCharCode const videoFormat = kCVPixelFormatType_32BGRA;
   } else if ([@"stopImageStream" isEqualToString:call.method]) {
     [_camera stopImageStream];
     result(nil);
+  } else if([@"stopPreview" isEqualToString:call.method]) {
+    [_camera stop];
+  } else if([@"restartPreview" isEqualToString:call.method]) {
+    [_camera stop];
   } else {
     NSDictionary *argsMap = call.arguments;
     NSUInteger textureId = ((NSNumber *)argsMap[@"textureId"]).unsignedIntegerValue;
